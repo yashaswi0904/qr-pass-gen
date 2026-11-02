@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pass Generator Studio | HackPass 2026</title>
+    <meta name="description" content="Generate and download your official HackFest 2026 attendee badge with custom QR code.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- QR Code & HTML2Canvas & Confetti CDNs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+</head>
+<body class="studio-page">
+
+    <!-- Ambient Background Glows -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+    <div class="ambient-glow glow-3"></div>
+
+    <!-- Navigation Header (Page 2) -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="back-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                <span>Back to Home</span>
+            </a>
+            
+            <a href="index.html" class="logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">HACK<span class="gradient-text">PASS</span></span>
+                <span class="badge-tag">STUDIO</span>
+            </a>
+
+            <div class="nav-actions">
+                <span class="step-indicator">Page 2 of 2: Pass Studio</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN PASS GENERATOR STUDIO (PAGE 2) -->
+    <main class="builder-section studio-page-main">
+        <div class="container">
+            
+            <div class="section-header text-center">
+                <span class="section-tag">Pass Generator Studio</span>
+                <h1 class="section-title">Configure & Download Your Pass</h1>
+                <p class="section-subtitle">Type your details on the left — your official badge updates live on the right!</p>
+            </div>
+
+            <div class="studio-layout">
+                
+                <!-- LEFT: Registration Form -->
+                <div class="form-panel">
+                    <div class="panel-header">
+                        <h3>Attendee Registration</h3>
+                        <span class="form-step-badge">Live Sync</span>
+                    </div>
+
+                    <form id="pass-form" onsubmit="return false;">
+                        
+                        <!-- Full Name -->
+                        <div class="form-group">
+                            <label for="input-name">
+                                <span>Full Name</span>
+                                <span class="required">*</span>
+                            </label>
+                            <div class="input-wrapper">
+                                <span class="input-icon">👤</span>
+                                <input type="text" id="input-name" placeholder="Enter your full name" value="Yashaswi Verma" maxlength="28" required autocomplete="off">
+                            </div>
+                        </div>
+
+                        <!-- Roll Number & College (Grid) -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="input-roll">
+                                    <span>Roll Number / ID</span>
+                                    <span class="required">*</span>
+                                </label>
+                                <div class="input-wrapper">
+                                    <span class="input-icon">🆔</span>
+                                    <input type="text" id="input-roll" placeholder="e.g. 23BCSE104" value="23BCSE104" maxlength="18" required autocomplete="off">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="input-role">
+                                    <span>Badge Category</span>
+                                </label>
+                                <div class="input-wrapper">
+                                    <span class="input-icon">🎖️</span>
+                                    <select id="input-role">
+                                        <option value="Hacker">Hacker (Participant)</option>
+                                        <option value="Team Lead">Team Lead</option>
+                                        <option value="Mentor">Mentor / Judge</option>
+                                        <option value="Organizer">Organizer Crew</option>
+                                        <option value="VIP Guest">VIP Guest</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- College / University -->
+                        <div class="form-group">
+                            <label for="input-college">
+                                <span>College / Institution</span>
+                                <span class="required">*</span>
+                            </label>
+                            <div class="input-wrapper">
+                                <span class="input-icon">🏛️</span>
+                                <input type="text" id="input-college" placeholder="e.g. Delhi Technological University" value="Delhi Technological University" maxlength="38" required autocomplete="off">
+                            </div>
+                        </div>
+
+                        <!-- Track Selection -->
+                        <div class="form-group">
+                            <label for="input-track">
+                                <span>Hackathon Track</span>
+                            </label>
+                            <div class="track-selector" id="track-selector">
+                                <button type="button" class="track-chip active" data-track="AI & Machine Learning" data-color="purple">
+                                    <span>🤖</span> AI & Machine Learning
+                                </button>
+                                <button type="button" class="track-chip" data-track="Web3 & Blockchain" data-color="cyan">
+                                    <span>⛓️</span> Web3 & Blockchain
+                                </button>
+                                <button type="button" class="track-chip" data-track="Cloud & DevOps" data-color="emerald">
+                                    <span>☁️</span> Cloud & DevOps
+                                </button>
+                                <button type="button" class="track-chip" data-track="Cybersecurity" data-color="crimson">
+                                    <span>🛡️</span> Cybersecurity
+                                </button>
+                                <button type="button" class="track-chip" data-track="Open Innovation" data-color="amber">
+                                    <span>💡</span> Open Innovation
+                                </button>
+                            </div>
+                            <input type="hidden" id="selected-track" value="AI & Machine Learning">
+                        </div>
+
+                        <!-- Avatar Selection / Upload -->
+                        <div class="form-group">
+                            <label>Choose Avatar or Upload Photo</label>
+                            <div class="avatar-row">
+                                <div class="avatar-presets" id="avatar-presets">
+                                    <button type="button" class="avatar-btn active" data-avatar="👨‍💻">👨‍💻</button>
+                                    <button type="button" class="avatar-btn" data-avatar="👩‍💻">👩‍💻</button>
+                                    <button type="button" class="avatar-btn" data-avatar="🚀">🚀</button>
+                                    <button type="button" class="avatar-btn" data-avatar="⚡">⚡</button>
+                                    <button type="button" class="avatar-btn" data-avatar="🤖">🤖</button>
+                                </div>
+                                <label class="custom-upload-btn" for="input-photo">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                                    <span>Upload Pic</span>
+                                </label>
+                                <input type="file" id="input-photo" accept="image/*" style="display: none;">
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-primary btn-lg btn-glow" id="btn-generate-pass" style="width: 100%;">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                                <span>Confirm & Update Pass ⚡</span>
+                            </button>
+                        </div>
+
+                        <div class="form-secondary-row" style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; padding-top: 0.8rem; border-top: 1px solid var(--border-color);">
+                            <button type="button" class="btn btn-outline btn-sm" id="btn-reset" title="Clear all fields">
+                                <span>Clear Form</span>
+                            </button>
+                            <button type="button" id="btn-quick-fill" style="background: none; border: none; color: var(--text-muted); font-size: 0.8rem; cursor: pointer; text-decoration: underline; padding: 0.3rem;">
+                                🎲 Fill with dummy sample profile
+                            </button>
+                        </div>
+                        <p class="form-helper-note">
+                            💡 Your pass updates live automatically as you type! Click "Confirm & Update Pass" or "Download Ticket" when done.
+                        </p>
+                    </form>
+                </div>
+
+                <!-- RIGHT: Live Badge Preview -->
+                <div class="preview-panel">
+                    <div class="panel-header">
+                        <h3>Live Ticket Preview</h3>
+                        <span class="live-indicator"><span class="live-dot"></span> LIVE UPDATING</span>
+                    </div>
+
+                    <!-- Pass Lanyard Wrapper -->
+                    <div class="lanyard-container">
+                        <!-- Top Lanyard Ribbon & Clip (Fixed to cover all words) -->
+                        <div class="lanyard-ribbon">
+                            <div class="ribbon-strap">
+                                <span class="strap-text">HACKFEST 2026 OFFICIAL DELEGATE</span>
+                            </div>
+                            <div class="lanyard-clip"></div>
+                            <div class="lanyard-hole"></div>
+                        </div>
+
+                        <!-- BADGE TO EXPORT (Target for html2canvas) -->
+                        <div class="event-badge" id="event-badge" data-theme="purple">
+                            <div class="badge-hologram-overlay"></div>
+                            
+                            <!-- Badge Header -->
+                            <div class="badge-header">
+                                <div class="badge-brand">
+                                    <span class="badge-logo-icon">⚡</span>
+                                    <div>
+                                        <div class="badge-event-title">HACKFEST '26</div>
+                                        <div class="badge-event-sub">NATIONAL TECH CARNIVAL</div>
+                                    </div>
+                                </div>
+                                <div class="badge-role-tag" id="badge-role-display">HACKER</div>
+                            </div>
+
+                            <!-- Decorative Chip & Barcode Top -->
+                            <div class="badge-security-strip">
+                                <div class="chip-graphic">
+                                    <div class="chip-inner"></div>
+                                </div>
+                                <div class="badge-barcode-mini">
+                                    <span class="barcode-line w-1"></span>
+                                    <span class="barcode-line w-3"></span>
+                                    <span class="barcode-line w-2"></span>
+                                    <span class="barcode-line w-1"></span>
+                                    <span class="barcode-line w-4"></span>
+                                    <span class="barcode-line w-2"></span>
+                                    <span class="barcode-line w-3"></span>
+                                    <span class="barcode-line w-1"></span>
+                                </div>
+                                <div class="badge-pass-id" id="badge-pass-id">HN26-8942</div>
+                            </div>
+
+                            <!-- Attendee Profile Center -->
+                            <div class="badge-body">
+                                <div class="badge-avatar-container" id="badge-avatar-container">
+                                    <div class="badge-avatar-display" id="badge-avatar-display">👨‍💻</div>
+                                </div>
+                                
+                                <h3 class="badge-name" id="badge-name-display">Yashaswi Verma</h3>
+                                <p class="badge-college" id="badge-college-display">Delhi Technological University</p>
+
+                                <div class="badge-meta-grid">
+                                    <div class="badge-meta-box">
+                                        <span class="meta-label">ROLL NO</span>
+                                        <span class="meta-val" id="badge-roll-display">23BCSE104</span>
+                                    </div>
+                                    <div class="badge-meta-box">
+                                        <span class="meta-label">VENUE / DESK</span>
+                                        <span class="meta-val">HALL B &bull; DESK 14</span>
+                                    </div>
+                                </div>
+
+                                <div class="badge-track-pill" id="badge-track-display">
+                                    <span>🤖</span> AI & Machine Learning
+                                </div>
+                            </div>
+
+                            <!-- Badge Footer: Dynamic QR Code -->
+                            <div class="badge-footer">
+                                <div class="qr-wrapper">
+                                    <div id="qrcode-box" class="qrcode-canvas-container"></div>
+                                    <div class="qr-laser-scanner" id="qr-laser-scanner"></div>
+                                </div>
+                                <div class="badge-footer-meta">
+                                    <div class="badge-scan-hint">Official Gate Check QR</div>
+                                    <div class="badge-date">OCT 31 - NOV 02, 2026</div>
+                                    <div class="badge-valid-status">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                                        <span>SECURITY VERIFIED • 256-BIT</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Micro-watermark -->
+                            <div class="badge-bottom-bar">
+                                <span>AUTHORIZED BY HACKFEST COUNCIL &bull; NON-TRANSFERABLE &bull; ID REQUIRED</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Download & Share Controls -->
+                    <div class="preview-actions">
+                        <button type="button" class="btn btn-download btn-glow" id="btn-download">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                            <span>Download Official Pass (PNG)</span>
+                        </button>
+                        
+                        <button type="button" class="btn btn-outline" id="btn-print-pass" style="width: 100%;">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+                            <span>Print Pass / Save as PDF</span>
+                        </button>
+                    </div>
+
+                    <p class="export-hint">
+                        💡 Click download to save your badge image. The QR code can be scanned directly with any phone camera!
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <span>⚡ HACKPASS 2026</span> &bull; <a href="index.html" style="color: var(--cyan); text-decoration: none;">← Return to Home</a>
+            </div>
+            <p class="footer-copy">Crafted for hackathon enthusiasts, college fests & organizer teams.</p>
+        </div>
+    </footer>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Main Logic Script -->
+    <script src="app.js"></script>
+</body>
+</html>

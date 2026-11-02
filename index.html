@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HackPass 2026 | National Tech Fest Official Portal</title>
+    <meta name="description" content="Official digital pass portal for HackFest 2026. Instant digital event passes with encrypted QR code verification.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="home-page">
+
+    <!-- Ambient Background Glows -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+    <div class="ambient-glow glow-3"></div>
+
+    <!-- Navigation Header (Page 1) -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">HACK<span class="gradient-text">PASS</span></span>
+                <span class="badge-tag">v2.6</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#about" class="nav-link">About Fest</a>
+                <a href="#how-it-works" class="nav-link">How It Works</a>
+                <a href="#tracks" class="nav-link">Tracks</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- FRONT PAGE: Hero Section -->
+    <section id="about" class="hero-section">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="pulse-dot"></span>
+                    <span>Official Pass Portal &bull; HackFest 2026</span>
+                </div>
+                <h1 class="hero-title">
+                    Instant Digital Passes for <span class="gradient-text">Hackathons & Fests</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Skip long physical registration lines. Enter your attendee details, generate your holographic cyber-badge in real time, and download your entry ticket with an encrypted gate QR code.
+                </p>
+                <div class="hero-cta-group">
+                    <a href="pass.html" class="btn btn-primary btn-lg btn-glow">
+                        <span>⚡ Go to Pass Generator</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+
+                <!-- Live Quick Stats -->
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">1,200+</span>
+                        <span class="stat-label">Registered Hackers</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number">48 Hrs</span>
+                        <span class="stat-label">Non-stop Building</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number">₹5,00,000</span>
+                        <span class="stat-label">Prize Pool</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS SECTION (Continuous 3D Carousel Transition) -->
+    <section id="how-it-works" class="features-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tag">Simple 3-Step Process</span>
+                <h2 class="section-title">How HackPass Works</h2>
+                <p class="section-subtitle">Get your verified digital event badge ready in less than 60 seconds.</p>
+            </div>
+
+            <!-- Continuous Revolving 3D Stage -->
+            <div class="steps-carousel-wrapper">
+                <div class="steps-stage" id="steps-stage">
+                    
+                    <!-- Card 1 -->
+                    <div class="step-card pos-center" data-step="0">
+                        <div class="step-badge-indicator">STEP 01</div>
+                        <div class="step-icon">📝</div>
+                        <h3>Enter Your Details</h3>
+                        <p>Provide your Full Name, College, Roll Number, and pick your Hackathon Track & Role.</p>
+                        <div class="step-focus-glow"></div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="step-card pos-right" data-step="1">
+                        <div class="step-badge-indicator">STEP 02</div>
+                        <div class="step-icon">⚡</div>
+                        <h3>Live Real-Time Render</h3>
+                        <p>Watch your holographic lanyard pass and encrypted gate-check QR code generate as you type.</p>
+                        <div class="step-focus-glow"></div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="step-card pos-left" data-step="2">
+                        <div class="step-badge-indicator">STEP 03</div>
+                        <div class="step-icon">🎟️</div>
+                        <h3>Download & Check-in</h3>
+                        <p>Export a high-resolution PNG ticket to your phone lockscreen. Show it at the gate for instant entry.</p>
+                        <div class="step-focus-glow"></div>
+                    </div>
+
+                </div>
+
+                <!-- Carousel Navigation Dots -->
+                <div class="steps-nav-dots" id="steps-dots">
+                    <button type="button" class="step-dot active" data-index="0" aria-label="Step 1"></button>
+                    <button type="button" class="step-dot" data-index="1" aria-label="Step 2"></button>
+                    <button type="button" class="step-dot" data-index="2" aria-label="Step 3"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HACKATHON TRACKS SHOWCASE -->
+    <section id="tracks" class="tracks-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tag">Choose Your Battleground</span>
+                <h2 class="section-title">Hackathon Tracks</h2>
+                <p class="section-subtitle">Select any track to create a custom-themed neon badge on the next page.</p>
+            </div>
+
+            <div class="tracks-grid">
+                <a href="pass.html?track=AI%20%26%20Machine%20Learning" class="track-card purple">
+                    <div class="track-badge-icon">🤖</div>
+                    <h3>AI & Machine Learning</h3>
+                    <p>Deep Learning, LLMs, Neural Networks & Autonomous Agents.</p>
+                    <span class="track-arrow">Customize Badge →</span>
+                </a>
+
+                <a href="pass.html?track=Web3%20%26%20Blockchain" class="track-card cyan">
+                    <div class="track-badge-icon">⛓️</div>
+                    <h3>Web3 & Blockchain</h3>
+                    <p>DeFi, Smart Contracts, Zero-Knowledge Proofs & dApps.</p>
+                    <span class="track-arrow">Customize Badge →</span>
+                </a>
+
+                <a href="pass.html?track=Cloud%20%26%20DevOps" class="track-card emerald">
+                    <div class="track-badge-icon">☁️</div>
+                    <h3>Cloud & DevOps</h3>
+                    <p>Kubernetes, Microservices, CI/CD pipelines & Serverless.</p>
+                    <span class="track-arrow">Customize Badge →</span>
+                </a>
+
+                <a href="pass.html?track=Cybersecurity" class="track-card crimson">
+                    <div class="track-badge-icon">🛡️</div>
+                    <h3>Cybersecurity</h3>
+                    <p>Ethical Hacking, Threat Intelligence, IoT & Cryptography.</p>
+                    <span class="track-arrow">Customize Badge →</span>
+                </a>
+
+                <a href="pass.html?track=Open%20Innovation" class="track-card amber">
+                    <div class="track-badge-icon">💡</div>
+                    <h3>Open Innovation</h3>
+                    <p>Hardware, EdTech, MedTech, FinTech & Social Good.</p>
+                    <span class="track-arrow">Customize Badge →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION BANNER -->
+    <section class="cta-banner-section">
+        <div class="container">
+            <div class="cta-banner">
+                <h2>Ready to claim your official HackPass?</h2>
+                <p>Proceed to the Pass Studio to enter your information and download your badge.</p>
+                <a href="pass.html" class="btn btn-primary btn-lg btn-glow">
+                    <span>Launch Pass Studio →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <span>⚡ HACKPASS 2026</span> &bull; National Tech Fest
+            </div>
+            <p class="footer-copy">Crafted for hackathon enthusiasts, college fests & organizer teams.</p>
+        </div>
+    <!-- App Script -->
+    <script src="app.js"></script>
+</body>
+</html>
